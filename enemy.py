@@ -7,6 +7,7 @@ class Enemy(pg.sprite.Sprite):
         self.waypoints = waypoints
         self.pos = Vector2(self.waypoints[0])
         self.target_waypoint = 1
+        self.speed = 2
         self.image = image
         self.rect = self.image.get_rect()
         self.rect.center = self.pos
@@ -19,5 +20,5 @@ class Enemy(pg.sprite.Sprite):
         self.target = Vector2(self.waypoints[self.target_waypoint])
         self.movement = self.target - self.pos
         self.rect.x += 1
-        self.pos += self.movement.normalize()
+        self.pos += self.movement.normalize() * self.speed
         self.rect.center = self.pos
